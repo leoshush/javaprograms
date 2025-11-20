@@ -1,0 +1,142 @@
+//addition
+package com.mjava;
+
+public class Addition {
+  int num1,num2,num3;
+  
+    public Addition() {
+    	System.out.println("This is me ");
+    }
+	public void readData() {
+	   System.out.println("Enter two numbers");
+	   num1 = Reed.sc.nextInt();
+	   num2 = Reed.sc.nextInt();
+  }
+	public void setData(int num1,int num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+	}
+	public void compute()
+	{
+		this.num3 = this.num1 + this.num2;
+	}
+  public void display() {
+	  System.out.println("num3 is " + this.num3);
+  }
+  // Destructor
+  public void finalize() {
+	  System.out.println("i am destructor");
+  }{
+	  System.out.println("Welcome to the anonymous block");
+  }
+  static {
+	  System.out.println("this is the static block");
+  }
+  
+}
+
+// creation of objects
+
+// into octal , hexadecimals , binary
+
+package com.mjava;
+
+import java.util.Scanner;
+
+public class Demo4 {
+     public static void main(String[] args) {
+    	 int a = 063; //octal
+    	  int  b = 63;
+    	 System.out.println(a);
+    	 System.out.println(b);
+    	 
+    	 System.out.println("Enter the number");
+    	 Scanner sc = new Scanner(System.in);
+    	 int num = sc.nextInt();
+    	 String val1 = Integer.toBinaryString(num);
+    	 String val2 = Integer.toOctalString(num);
+    	 String val3 = Integer.toHexString(num);
+    	 
+    	 System.out.println("Binary value is" + val1);
+    	 System.out.println("Octal value is" + val2);
+    	 System.out.println("Hex value is " + val3);
+
+     }
+}
+// Write a program to convert a integer hexadecimal , octal and binary.
+// Create a matrix class which defines by default 3*3 matrix if the size is given it defines the matrix of respective size 
+// create a behaviour to read data, have a copy constructor to read data.
+
+
+// accept amount in figures and convert in words upto ten crores ;
+
+package com.mjava;
+
+import java.util.Scanner;
+
+public class Demo6 {
+   
+	 static String[] ones = {
+		 "","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"	   			   
+	   };
+	 static String[] tens = {
+			   "","","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"
+	   };
+	   
+   
+	   public static String WordsbelowThousand(int num) {
+		  String result="";
+		   if(num>100)
+		   {
+			   result +=ones[num/100] + "Hundred";
+			   num = num%100;
+		   }
+		   if(num>20)
+		   {
+			   result +=tens[num/10] + " ";
+			   num = num%10;
+		   }
+		   if(num>0)
+		   {
+			   result += ones[num] + "";
+		   }
+		   return result.trim();
+	   }
+	   public static String convertToWords(int num) {
+		  String result = "";
+		  if(num==0)
+		  {
+			  return "Zero";
+		  }
+		  if(num>=10000000 )
+		  {
+			  result+=WordsbelowThousand(num/10000000)+ "Crore";
+		      num= num%10000000;
+		  }
+		  if(num>=100000)
+		  {
+			  result+=WordsbelowThousand(num/100000)+ "Lakh";
+		      num = num%100000;
+		  }
+		  if(num>=1000)
+		  {
+			  result+=WordsbelowThousand(num/1000) + "Thousand";
+		      num = num%1000;
+		  }
+		  if(num>0)
+		  {
+			  result+=WordsbelowThousand(num)+"";
+		  }
+		  return result.trim();
+	   }
+	   public static void main(String[] args) {   
+	      Scanner sc  = new Scanner(System.in);
+	      String result ;
+	       int number = sc.nextInt();
+	      result = convertToWords(number);
+	      System.out.println("result is "+ result);
+	   }
+	   
+   
+}
+ 
